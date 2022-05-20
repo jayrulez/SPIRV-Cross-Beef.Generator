@@ -1,0 +1,6 @@
+[submodule "SPIRV-Cross"]
+	path = SPIRV-Cross
+	url = https://github.com/KhronosGroup/SPIRV-Cross.git
+[submodule "SPIRV-Cross-Beef"]
+	path = SPIRV-Cross-Beef
+	url = https://github.com/jayrulez/SPIRV-Cross-Beef.git
