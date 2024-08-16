@@ -10,6 +10,7 @@ namespace SPIRV_Cross_Beef.Generator
         private static readonly HashSet<string> s_keywords = new HashSet<string>
         {
             "function",
+            "var"
         };
 
         private static readonly Dictionary<string, string> s_bfNameMappings = new Dictionary<string, string>()
@@ -25,6 +26,8 @@ namespace SPIRV_Cross_Beef.Generator
             { "int64_t*", "int64*" },
             { "char", "char8" },
             { "size_t", "uint" },
+            { "long long", "int64" },
+            { "unsigned long long", "uint64" },
 
             { "spvc_bool", "bool" },
             { "spvc_constant_id", "uint32" },
@@ -138,9 +141,11 @@ namespace SPIRV_Cross_Beef.Generator
                     return isPointer ? "int32*" : "int32";
 
                 case CppPrimitiveKind.LongLong:
-                    break;
+                    return isPointer ? "int64*" : "int64";
+
                 case CppPrimitiveKind.UnsignedChar:
-                    break;
+                    return isPointer ? "uint8*" : "uint8";
+
                 case CppPrimitiveKind.UnsignedShort:
                     //return isPointer ? "ushort*" : "ushort";
                     return isPointer ? "uint16*" : "uint16";
@@ -149,7 +154,8 @@ namespace SPIRV_Cross_Beef.Generator
                     return isPointer ? "uint32*" : "uint32";
 
                 case CppPrimitiveKind.UnsignedLongLong:
-                    break;
+                    return isPointer ? "uint64*" : "uint64";
+
                 case CppPrimitiveKind.Float:
                     //return isPointer ? "float*" : "float";
                     return isPointer ? "float*" : "float";

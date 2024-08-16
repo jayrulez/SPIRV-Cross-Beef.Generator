@@ -201,6 +201,9 @@ namespace SPIRV_Cross_Beef.Generator
             if (name == "function")
                 return "@function";
 
+            if (name == "var")
+                return "@var";
+
             if (name.StartsWith('p')
                 && char.IsUpper(name[1]))
             {
