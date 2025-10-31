@@ -172,7 +172,7 @@ namespace SPIRV_Cross_Beef.Generator
                 var paramCsTypeName = GetBfTypeName(cppParameter.Type, false);
                 var paramCsName = GetParameterName(cppParameter.Name);
 
-                if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out CppTypeDeclaration? cppTypeDeclaration))
+                if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out CppTypeDeclaration cppTypeDeclaration))
                 {
                     argumentBuilder.Append("out ");
                     paramCsTypeName = GetBfTypeName(cppTypeDeclaration, false);
@@ -214,7 +214,7 @@ namespace SPIRV_Cross_Beef.Generator
             return name;
         }
 
-        private static bool CanBeUsedAsOutput(CppType type, out CppTypeDeclaration? elementTypeDeclaration)
+        private static bool CanBeUsedAsOutput(CppType type, out CppTypeDeclaration elementTypeDeclaration)
         {
             if (type is CppPointerType pointerType)
             {
