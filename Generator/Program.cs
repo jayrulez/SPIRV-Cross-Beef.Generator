@@ -7,7 +7,7 @@ namespace SPIRV_Cross_Beef.Generator
     public class Program
     {
         private static string SPRIVCrossSourceDir = "../../../../../SPIRV-Cross";
-        private static string OutputDir = "../../../../../SPIRV-Cross-Beef/SPIRV-Cross/src/Generated";
+        private static string OutputDir = "../../../../../SPIRV-Cross-Beef/src/Generated";
         private static string ProjectNamespace = "SPIRV_Cross";
 
         public static int Main(string[] args)
